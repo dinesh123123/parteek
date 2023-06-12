@@ -1,0 +1,124 @@
+<style>#line_chart {  
+    height: 1px;
+     margin-top: opx;
+     margin-left: 25px; }
+     </style>
+
+      <section class="content dashboard">
+            <div class="main-graph">
+                    <div class="row clearfix">
+                        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-10 padding-0 overflow-hidden">
+                            <div class="graph-area">
+                                 <div id="line_chart"></div>
+                            </div> 
+                        </div>
+                      
+                    </div>
+                </div>
+                <!-- #END# Main Graph-->
+            <div class="page-heading">
+                <h1>Contest</h1>
+                <ol class="breadcrumb">
+                    <li><a href="/public/index">Home</a></li>
+                    <li class="active">Contest</li>
+                </ol>
+            </div>
+
+
+            <div class="panel panel-default">
+            
+                <div class="panel-heading"> <button type="open-button" onclick="openForm()"class="btn btn-info add-new"><i class="fa fa-plus"></i><a href="/public/create_contest"> Add New</a></button></div>
+<!--<div class="form-popup" id="myForm">
+ <h2>Add contest </h2>
+  <form  class="form-container"action="/public/create_contest" method="POST">
+    <label for="title"><b>Enter Title</b></label>
+    <input type="text" placeholder="Enter Name" name="title" required>
+    <label for="status"><b>Enter staus</b></label>
+    <input type="text" placeholder="Enter Name" name="status" required>
+
+    <button type="submit" class="btn">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>-->
+
+
+           
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="myTable" class="table js-exportable">
+                            
+                            <thead>
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>title</th>
+                                        <th>1<sup>th</sup> Prize</th>
+                                        <th>2<sup>th</sup> Prize</th>
+                                        <th>3<sup>th</sup> Prize</th>
+                                        <th>4<sup>th</sup> Prize</th>
+                                        <th>5<sup>th</sup> Prize</th>
+                                        <th>6<sup>th</sup> Prize</th>
+                                        <th>7<sup>th</sup> Prize</th>
+                                        <th>8<sup>th</sup> Prize</th>
+                                        
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+            <% for(var i=0; i < data.length; i++) { %>
+                                   
+        <tr>
+         <td><%= i+1%></td>
+        <td><%=data[i].title%></td>
+        <td><%=data[i].winning_prize1%></td>
+        <td><%=data[i].winning_prize2%></td>
+        <td><%=data[i].winning_prize3%></td>
+        <td><%=data[i].winning_prize4%></td>
+        <td><%=data[i].winning_prize5%></td>
+        <td><%=data[i].winning_prize6%></td>
+        <td><%=data[i].winning_prize7%></td>
+        <td><%=data[i].winning_prize8%></td>
+       
+       
+        <td>
+        
+        
+          
+                <% if(data[i].statuss==0) { %>
+                <a href="/public/status_update/<%=data[i].contest_id%>"  class="btn btn-success" >Open</a>
+                <% } else { %>
+                <a href="/public/status_update/<%=data[i].contest_id%>"  class="btn btn-info">Close</a>
+                <% } %>
+                </td>
+
+                
+        
+        </td>
+        
+ <td><a href="/public/contest_update/<%=data[i].contest_id%>" class="btn btn-primary"><i class="fa fa-edit">Edit</i></a></td>
+
+
+<td><a href ="/public/contest_delete/<%=data[i].contest_id%>"class="btn btn-circle  btn-lg  btn-danger"><i class="fa fa-trash"></i></a></td>
+ 
+                                        </tr>
+                                        <% } %>
+                               </tbody> 
+                        
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Task data -->
+            </div>
+        </section>

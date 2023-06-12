@@ -1,0 +1,134 @@
+<style>#line_chart {  
+    height: 1px;
+     margin-top: opx;
+     margin-left: 25px; }
+     .dinesh{
+height: 80px;
+width: 80px;
+     }
+     
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+
+    body {
+  background-color: #E7EBEE;
+  font-size: 14px;
+  font-family: "Open Sans", Arial, Tahoma, sans-serif;
+  width: 100%; }
+  body.boxed-layout {
+    background: url("../images/bg-pattern.png") repeat; }
+    body.boxed-layout .all-content-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow-x: hidden;
+      -webkit-box-shadow: 0 0 15px #999;
+      -moz-box-shadow: 0 0 15px #999;
+      -ms-box-shadow: 0 0 15px #999;
+      box-shadow: 0 0 15px #999; }
+
+.content {
+  background-color: #E7EBEE; }
+  
+  .signin-right-image{background: url("../images/signin-bg.jpg") no-repeat;}
+
+
+
+     </style>
+
+      <section class="content dashboard">
+            <div class="main-graph">
+                    <div class="row clearfix">
+                        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-10 padding-0 overflow-hidden">
+                            <div class="graph-area">
+                                 <div id="line_chart"></div>
+                            </div> 
+                        </div>
+                      
+                    </div>
+                </div>
+                <!-- #END# Main Graph-->
+            <div class="page-heading">
+                <h1>Category</h1>
+                <ol class="breadcrumb">
+                    <li><a href="/public/index">Home</a></li>
+                    <li class="active">Category</li>
+                </ol>
+            </div>
+
+
+            <div class="panel panel-default">
+            
+  <div class="panel-heading"> <button type="open-button" onclick="openForm()"class="btn btn-info add-new"><i class="fa fa-plus"></i><a href="/public/create_category"> Add New</a></button></div>
+<!--<div class="form-popup" id="myForm">
+ <h2>Add Category </h2>
+  <form  class="form-container"action="/public/create_category" enctype="multipart/form-data" method="POST">
+    <label for="name"><b>Enter catergory_name</b></label>
+    <input type="text" placeholder="Enter Name" name="category_name" required>
+
+    <label for="file"><b>select file</b></label>
+    <input type="file" placeholder="Choose image" name="image"  required>
+    <br><br>
+    <button type="submit" class="btn">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>-->
+
+
+           
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="myTable" class="table js-exportable">
+                            
+                            <thead>
+                                    <tr>
+                                        <th>S.No</th>
+                                   <th>CategoryId</th>
+                                <th>Category Name</th>
+                                <div class="dinesh"><th>Image</th></div>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+            <% for(var i=0; i < data.length; i++) { %>
+                                   
+        <tr>
+         <td><%= i+1%></td>
+         <td><%=data[i].category_id%></td>
+        <td><%=data[i].category_name%></td>
+        
+ <td><div class="dinesh"><img src="/uploads/<%=data[i].image%>"alt="cars"style="height:75px;weight:75px;"></td></div>
+
+ <td><a href="/public/category_update/<%=data[i].category_id%>" class="btn btn-primary"><i class="fa fa-edit">Edit</i></a></td>
+
+
+<td><a href ="/public/category_delete/<%=data[i].category_id%>"class="btn btn-circle  btn-lg  btn-danger"><i class="fa fa-trash"></i></a></td>
+ 
+                                        </tr>
+                                        <% } %>
+                               </tbody> 
+                        
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Task data -->
+            </div>
+        </section>

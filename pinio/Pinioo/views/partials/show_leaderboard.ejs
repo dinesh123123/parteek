@@ -1,0 +1,114 @@
+<style>#line_chart {  
+    height: 1px;
+     margin-top: opx;
+     margin-left: 25px; }
+
+         
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+#hii{
+    margin-left: 200px;
+    
+}
+#hiii{
+    margin-top: 25px;
+    margin-left: 5px;
+    
+}
+#hi{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+     </style>
+
+      <section class="content dashboard">
+            <div class="main-graph">
+                    <div class="row clearfix">
+                        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-10 padding-0 overflow-hidden">
+                            <div class="graph-area">
+                                 <div id="line_chart"></div>
+                            </div> 
+                        </div>
+                      
+                    </div>
+                </div>
+                <!-- #END# Main Graph-->
+            <div class="page-heading">
+                <h1>Leader Board Operation</h1>
+                <ol class="breadcrumb">
+                    <li><a href="/public/index">Home</a></li>
+                    <li class="active">leader_board</li>
+                </ol>
+            </div>
+
+          
+
+            <div class="panel panel-default">
+                
+            
+                <div class="panel-heading"> 
+<br>
+<form class="form-horizontal" action="/public/filter_winners"  method="POST">
+                    <div class="form-group" id="hii">
+                        <div class="col-sm-3">
+                            <label><b>select Start date</b></label>
+                            <input type="date" class="form-control" id="hi" name="a" placeholder="start date" />
+                        </div>
+                        <div class="col-sm-3">
+                            <label><b> select end date</b></label>
+                            <input type="date" class="form-control" id="hi" name="b" placeholder="yyyy-mm-day" />
+                        </div>
+                
+                        <button type="submit" class="btn btn-sm btn-success" id="hiii">Submit</button>
+                    </div>
+                    <br>
+</form>
+            </div>
+              
+               
+           
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="myTable" class="table js-exportable">
+                            
+                            <thead>
+                                    <tr>
+                                        <th>S.No</th>
+
+                                        <th>Name</th>
+                                        <th>Image</th>
+                                        <th>Coin</th>
+                                        <th>Rank</th>
+                                        <th>Won Voucher</th>
+                                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+            <% for(var i=0; i < data.length; i++) { %>
+                                   
+        <tr>
+         <td><%= i+1%></td>
+         <td><%=data[i].name%></td>
+         <td><img src="/uploads/<%=data[i].image%>"alt="img"style="height:55px;weight:55px;border-radius: 50%;"></td>
+       
+          <td><%=data[i].coin%></td>
+          <td><%=data[i].position%></td>
+          <td><%=data[i].won_voucher%></td>
+         
+                                        </tr>
+                                        <% } %>
+                               </tbody> 
+                        
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Task data -->
+            </div>
+        </section>
